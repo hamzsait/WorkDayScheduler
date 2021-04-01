@@ -2,6 +2,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 textarea {
@@ -70,20 +73,37 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
+.container{
+  width: 100%;
+}
+
 #table{
   width:100%;
-  background-color: #ff6961;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+#table th{
+  font-size: 20px;
+  padding: 10px;
 }
 
 #col1{
-  width:20%;
+  width:10%;
   text-align: center;
 }
 
 #col2{
-  width:60%;
+  width:70%;
   text-align: center;
 }
+
+#col2 input{
+  width:100%;
+  height: 100%;
+  text-align: left;
+}
+
 #col3{
   width:10%;
   text-align: center;
