@@ -4,7 +4,7 @@ $('#currentDay').css("font-size", "25px")
 var table = $('#table')
 var time = 9
 currentDay = false
-for (x = 0; x < 8; x++){
+for (x = 0; x < 9; x++){
 
     
     var row = $('<tr>').css("height","60px")
@@ -32,10 +32,10 @@ for (x = 0; x < 8; x++){
     table.append(row)
 
     if (time >= 12){
-        time = 1
+        time = 0
     }
 
-    if ((moment().format('h') == time) && (moment().format(("H")) == moment().format(("h")))){
+    if ((moment().format('h') == time) ){
         col2.children().css("background-color","red")
         col2.attr("background-color","red")
         currentDay = true
@@ -54,7 +54,7 @@ for (x = 0; x < 8; x++){
 
 rows = []
 if (localStorage.getItem("data") == null){
-    for (i = 0; i < 8; i++){
+    for (i = 0; i < 9; i++){
         rows[i] = {textContent: "", locked: false}
     }
 }
@@ -64,7 +64,7 @@ else{
 
 function reload(){
     data = JSON.parse(localStorage.getItem("data"))
-    for (i = 0; i < 8; i++){
+    for (i = 0; i < 9; i++){
         rows[i] = {textContent: data[i].textContent, locked: data[i].locked}
 
         if (rows[i].locked){
@@ -94,7 +94,7 @@ $(document).on('click','.btn',function(){
     localStorage.setItem("data", JSON.stringify(rows))
 })
 
-$(document).on('click','.remover',function(){
+$(document).on('keydown','.remover',function(){
     index = this.id[this.id.length-1]
     $("#button"+index).css("color", "white")
     rows[index].locked = false
