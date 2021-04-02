@@ -35,7 +35,7 @@ for (x = 0; x < 9; x++){
         time = 0
     }
 
-    if ((moment().format('h') == time) ){
+    if ((moment().format('h') == time) && (moment().format(("H")) == moment().format(("h")))){
         col2.children().css("background-color","red")
         col2.attr("background-color","red")
         currentDay = true
