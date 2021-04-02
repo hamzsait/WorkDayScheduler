@@ -13,7 +13,7 @@ for (x = 0; x < 8; x++){
     col2 = $('<td>')
     col3 = $('<td>')
 
-    textarea = $('<textarea rows = "4" >')
+    textarea = $('<textarea class = "remover" id = "textarea'+x+'" rows = "4" >')
     col2.append(textarea)
 
     button = $('<button id = "button'+x+'" type="button" class="btn btn-info btn-block saveBtn">')
@@ -35,10 +35,10 @@ for (x = 0; x < 8; x++){
         time = 1
     }
 
-    if (moment().format('h') == time){
+    if ((moment().format('h') == time) && (moment().format(("H")) == moment().format(("h")))){
         col2.children().css("background-color","red")
-        col2.css("background-color","red")
-        currentFound = true
+        col2.attr("background-color","red")
+        currentDay = true
     }
     else if (currentDay){
         col2.children().css("background-color","green")
@@ -52,52 +52,54 @@ for (x = 0; x < 8; x++){
     time++
 }
 
+rows = []
+if (localStorage.getItem("data") == null){
+    for (i = 0; i < 8; i++){
+        rows[i] = {textContent: "", locked: false}
+    }
+}
+else{
+    reload()
+}
 
-$(document).on('click','button',function(){
-    console.log(this.id[this.id.length-1])
+function reload(){
+    data = JSON.parse(localStorage.getItem("data"))
+    for (i = 0; i < 8; i++){
+        rows[i] = {textContent: data[i].textContent, locked: data[i].locked}
 
-    rows = [
-        {
-            textContent: "hello",
-            locked: false
-        },
-        {
-            textContent: "hello",
-            locked: false
-        },
-        {
-            textContent: "hello",
-            locked: false
-        },
-        {
-            textContent: "hello",
-            locked: false
-        },
-        {
-            textContent: "hello",
-            locked: false
-        },
-        {
-            textContent: "hello",
-            locked: false
-        },
-        {
-            textContent: "hello",
-            locked: false
-        },
-        {
-            textContent: "hello",
-            locked: false
-        },
-    ]
+        if (rows[i].locked){
+            $("#button"+i).css("color","red")
+            $("#textarea"+i).append(rows[i].textContent)
+        }
+    }
+}
+
+
+$(document).on('click','.btn',function(){
+    index = this.id[this.id.length-1]
+    console.log(index)
+
+    rows[index].textContent = $("#textarea"+index).val()
+
+    if(rows[index].locked){
+        rows[index].locked = false
+        $('#button'+index).css("color","white")
+    }
+    else{
+        rows[index].locked = true
+        $('#button'+index).css("color","red")
+    }
+
 
     localStorage.setItem("data", JSON.stringify(rows))
-
-    console.log(JSON.parse(localStorage.getItem("data")))
-
-
 })
 
+$(document).on('click','.remover',function(){
+    index = this.id[this.id.length-1]
+    $("#button"+index).css("color", "white")
+    rows[index].locked = false
+    localStorage.setItem("data", JSON.stringify(rows))
+})
 
 
 
