@@ -21,9 +21,6 @@ for (x = 0; x < 8; x++){
     button.append(icon)
     col3.append(button)
 
-    
-
-
     col1.attr("id","col1")
     col2.attr("id","col2")
     col3.attr("id","col3")
@@ -52,15 +49,54 @@ for (x = 0; x < 8; x++){
         col2.css("background-color","gray")
     }
 
-    console.log(moment().format('h'))
-
     time++
-
-    
-    
 }
 
-$("#button2").css("color","red")
+
+$(document).on('click','button',function(){
+    console.log(this.id[this.id.length-1])
+
+    rows = [
+        {
+            textContent: "hello",
+            locked: false
+        },
+        {
+            textContent: "hello",
+            locked: false
+        },
+        {
+            textContent: "hello",
+            locked: false
+        },
+        {
+            textContent: "hello",
+            locked: false
+        },
+        {
+            textContent: "hello",
+            locked: false
+        },
+        {
+            textContent: "hello",
+            locked: false
+        },
+        {
+            textContent: "hello",
+            locked: false
+        },
+        {
+            textContent: "hello",
+            locked: false
+        },
+    ]
+
+    localStorage.setItem("data", JSON.stringify(rows))
+
+    console.log(JSON.parse(localStorage.getItem("data")))
+
+
+})
 
 
 
