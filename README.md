@@ -6,7 +6,7 @@ This week's assignment had us create a simple daily work calendar.
     The header includes the title of the project and the current date.
     The current date is updated through the Moment.js API
 
-![ImageOfHeader](./assets/)
+![ImageOfHeader](./assets/images/Header.png)
 
 
 ## 2. Task List
@@ -15,8 +15,8 @@ This week's assignment had us create a simple daily work calendar.
 
     The color of the task list corresponds to the time of the day. Red is for the current time, grey is for past time, and green is for future time. The time of the day is kept track through the Moment.js API. 
 
-![ImageOfColorTime]()
+![ImageOfColorTime](./assets/images/TaskList.png)
 
     The lock button will turn red if clicked and save the textarea entry into local storage. If a user reloads the page, the text will remain within the textarea. In addition, if a user rewrites what is in the textarea, the lock will automatically unlock back to white.
 
-![ImageOfWhiteButton]() ![ImageOfRedButton]()
+![ImageOfWhiteButton](./assets/images/LockRed.png) ![ImageOfRedButton](./assets/images/LockWhite.png)
