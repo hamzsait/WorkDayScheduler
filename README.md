@@ -20,3 +20,6 @@ This week's assignment had us create a simple daily work calendar.
     The lock button will turn red if clicked and save the textarea entry into local storage. If a user reloads the page, the text will remain within the textarea. In addition, if a user rewrites what is in the textarea, the lock will automatically unlock back to white.
 
 ![ImageOfWhiteButton](./assets/images/LockRed.png) ![ImageOfRedButton](./assets/images/LockWhite.png)
+
+[Link to Repo](https://github.com/hamzsait/WorkDayScheduler)
+[Link to Website]()
