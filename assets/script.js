@@ -3,7 +3,7 @@ $('#currentDay').css("font-size", "25px")
 
 var table = $('#table')
 var time = 9
-currentFound = false
+currentDay = false
 for (x = 0; x < 8; x++){
 
     
@@ -13,8 +13,16 @@ for (x = 0; x < 8; x++){
     col2 = $('<td>')
     col3 = $('<td>')
 
-    col2.append($('<input>').text("lol no way"))
-    col3.append($('<button>').text("LOCK"))
+    textarea = $('<textarea rows = "4" >')
+    col2.append(textarea)
+
+    button = $('<button id = "button'+x+'" type="button" class="btn btn-info btn-block saveBtn">')
+    icon = $('<i class="fa fa-lock">')
+    button.append(icon)
+    col3.append(button)
+
+    
+
 
     col1.attr("id","col1")
     col2.attr("id","col2")
@@ -35,7 +43,7 @@ for (x = 0; x < 8; x++){
         col2.css("background-color","red")
         currentFound = true
     }
-    else if (currentFound){
+    else if (currentDay){
         col2.children().css("background-color","green")
         col2.css("background-color","green")
     }
@@ -51,6 +59,10 @@ for (x = 0; x < 8; x++){
     
     
 }
+
+$("#button2").css("color","red")
+
+
 
 
 
